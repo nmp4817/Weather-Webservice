@@ -20,7 +20,7 @@ try {
         switch($_POST) {
 
         	case (isset($_POST['city_id']) && !empty($_POST['city_id'])):
-        		$city_id = $_POST['city_id'];
+        		$city_id = intval($_POST['city_id']);
                 $result = get_data_by_id($city_id);
         		break;
 
