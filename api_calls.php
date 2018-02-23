@@ -31,18 +31,26 @@ function get_data_by_coord($lat, $lon) {
 
 		$response = json_decode($response,true);
 
-		return parseResponse($rersponse);
+		return parseResponse($response);
 	}
 	
 }
 
 function get_data_by_name($city_name) {
 
-	$response = file_get_contents(BASE_URL."q=$city_name&units=".UNITS."&APPID=".APPID);
-	
-	$response = json_decode($response,true);
-	
-	return parseResponse($response);
+	$result = check_cache([$city_id],["id"]);
+
+	if( !empty($result) ) {
+		
+		return $result;
+
+	} else {
+		$response = file_get_contents(BASE_URL."q=$city_name&units=".UNITS."&APPID=".APPID);
+		
+		$response = json_decode($response,true);
+		
+		return parseResponse($response);
+	}
 }
 
 

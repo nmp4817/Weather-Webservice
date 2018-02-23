@@ -17,7 +17,9 @@ Homestead.yaml
 Homestead.json
 
 .local
-city.json
+cache_file.json
+log_file.log
+test.php
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/

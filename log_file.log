@@ -1,2 +1,0 @@
-[23-Feb-2018 00:18:28 Europe/Berlin] Hello, errors!
-[23-Feb-2018 00:20:27 Europe/Berlin] PHP Warning:  error_log() expects parameter 1 to be string, array given in C:\xampp\htdocs\Weather-Webservice\service.php on line 47
