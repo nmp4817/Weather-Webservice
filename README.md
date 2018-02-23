@@ -29,5 +29,5 @@ A web service that returns current weather information for a mobile client user 
   <li>Put Repository inside htdocs folder of apache or xampp</li>
   <li>Create .local folder in project directory.</li>
   <li>Create authorization.php (to authorize user) and config-local.php (to define constants and initialize logging) files in .local folder.</li>
-  <li>Go to http://localhost/weather-webservice/testHtml.html and test the service.</li>
+  <li>Click <a href="http://localhost/weather-webservice/testHtml.html">here</a> and test the service.</li>
 </ol>
