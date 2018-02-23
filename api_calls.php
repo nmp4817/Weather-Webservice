@@ -70,10 +70,16 @@ function parseResponse($response) {
         $result["wind_direction"] = $direction;
 
         //appending to cache
-        $inp = file_get_contents(CACHE_FILE);
-		$tempArray = json_decode($inp);
-		array_push($tempArray, $result);
-		$jsonData = json_encode($tempArray);
+        if ( filesize(CACHE_FILE) == 0 ) {
+        	$tempArray[] = $result;
+        	$jsonData = json_encode($tempArray);
+        } else {
+        	$inp = file_get_contents(CACHE_FILE);
+			$tempArray = json_decode($inp);
+			array_push($tempArray, $result);
+			$jsonData = json_encode($tempArray);
+        }
+        
 		file_put_contents(CACHE_FILE, $jsonData);
         
         return $result;
@@ -95,7 +101,7 @@ function check_cache($params, $param_types) {
 
 	if ( file_exists(CACHE_FILE) ) {
 
-		if ( (time() > (filectime(CACHE_FILE) + $time_limit) ) ) {
+		if ( (time() < (filectime(CACHE_FILE) + $time_limit) ) ) {
 		
 			$cached_data = json_decode(file_get_contents(CACHE_FILE),true);
 			
